@@ -288,7 +288,16 @@ Figure 4: Empirical benchmarking of dispatch overhead, customer retention, and w
 
 4.7 End-to-End System Prototype Implementation and UI Verification
 
-To demonstrate practical deployment readiness, the full-stack architecture was realized as a working production prototype. The React 18 / Vite single-page application embeds an interactive Leaflet geospatial map visualizing verified technician nodes across 20 Rajahmundry wards. The customer dispatch form provides real-time GPS coordinate snapping, one-time versus recurring subscription selection, and automated OTP generation. The worker dashboard incorporates live availability status toggling (AVAILABLE, BUSY, OFFLINE), audible dispatch popups showing client distance and negotiated fare, an OTP doorstep validation dialog, and an instant payout ledger. Across 500 simulated transactions, the client application maintained zero runtime exceptions and sub-50ms reactive state updates, confirming robust production feasibility.
+To demonstrate practical deployment readiness, the full-stack architecture was realized as a working production prototype. The React 18 / Vite single-page application embeds an interactive Leaflet geospatial map visualizing verified technician nodes across 20 Rajahmundry wards (Figure 5). The customer dispatch form provides real-time GPS coordinate snapping, one-time versus recurring subscription selection, and automated OTP generation (Figure 6). The worker dashboard incorporates live availability status toggling (AVAILABLE, BUSY, OFFLINE), audible dispatch popups showing client distance and negotiated fare, an OTP doorstep validation dialog, and an instant payout ledger (Figure 7). Across 500 simulated transactions, the client application maintained zero runtime exceptions and sub-50ms reactive state updates, confirming robust production feasibility.
+
+Figure 5: High-precision municipal geospatial interface and artisan clustering map across Rajahmundry wards.
+![Figure 5](figures/fig5_live_worker_map_ui.png)
+
+Figure 6: Automated recurring subscription configurator, multi-factor AI matchmaking engine, and consumer OTP handshake interface.
+![Figure 6](figures/fig6_recurring_job_dispatch_ui.png)
+
+Figure 7: Worker field terminal, live dispatch queue with recurring contract alerts, and secure doorstep OTP validation interface.
+![Figure 7](figures/fig7_worker_portal_ui.png)
 
 4.8 Qualitative Municipal Case Study
 
