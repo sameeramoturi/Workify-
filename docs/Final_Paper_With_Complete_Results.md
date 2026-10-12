@@ -21,10 +21,10 @@ KEYWORDS:
 On-demand gig economy, spatial crowdsourcing, Haversine optimization, bilateral Elo rating, multi-factor ranking, doorstep authentication, microservices, cloud engineering, smart cities.
 
 ================================================================================
-MANUSCRIPT NARRATIVE (SECTIONS 1 TO 6)
+MANUSCRIPT NARRATIVE (SECTIONS I TO VI)
 ================================================================================
 
-1. INTRODUCTION
+I. INTRODUCTION
 
 In secondary urban centers like Rajahmundry, Kakinada, and Vijayawada (Andhra Pradesh), residential colonies are spreading faster than organized local trade services can keep up. When an underground pipeline leaks or an MCB trips, households rarely turn to an app. Instead, they ask a neighbor, walk to the nearest hardware store, or call someone from a handwritten notebook [1]. The experience is almost always stressful. Tradesmen quote rates on the spot with no clear breakdown, promised arrival times slip from morning to evening, and homeowners have no way of knowing whether the technician holds a formal qualification or learned on the job last week.
 
@@ -55,7 +55,7 @@ To tackle these everyday problems, we developed a specialized, cloud-native muni
 1.2 Paper Organization
 The rest of this paper is organized as follows: Section 2 reviews past work in spatial crowdsourcing and reputation modeling. Section 3 presents our optimization math, rating equations, and backend design. Section 4 discusses latency benchmarks, rating convergence, and municipal field trials. Section 5 discusses current limitations, and Section 6 outlines next steps.
 
-2. RELATED WORK
+II. RELATED WORK
 
 2.1 Spatial Crowdsourcing and Hyperlocal Dispatch
 
@@ -73,7 +73,7 @@ Personal safety during home service visits is a recurring concern in gig labor a
 
 Past research has focused on spatial KNN algorithms [7] or theoretical taxi dispatch models [2]. Very few studies have looked at how to combine localized spatial bounding, two-sided reputation balancing, and physical doorstep check-ins for secondary cities. The proposed framework was built specifically to close this gap.
 
-3. METHODOLOGY
+III. SYSTEM ARCHITECTURE AND METHODOLOGY
 
 3.1 Municipal Geographic Scope and Problem Setting
 
@@ -180,7 +180,7 @@ $ $+ 0.15_exp + 0.10_avail + 0.10_cert$\\
 24: $W_ranked  W_candidate[0 : k]$\\
 25: return $W_ranked$
 
-4. RESULTS AND DISCUSSION:
+IV. RESULTS AND DISCUSSION
 
 4.1 Geospatial Matchmaking and Dispatch Latency Evaluation
 
@@ -303,11 +303,11 @@ Figure 7: Worker field terminal, live dispatch queue with recurring contract ale
 
 During field testing in Rajahmundry, a resident in Danavaipeta reported an urgent kitchen plumbing leak. The platform processed the request and found suitable candidate matches in 32 ms. The top-ranked technician — Ramesh Das, who brings 12 years of trade experience, an ITI plumbing diploma, and an Elo rating of 1840 — was working 1.8 km away in Innespeta. He accepted the dispatch and arrived on-site in 14 minutes. Once the homeowner shared the 4-digit doorstep passcode, the system confirmed his arrival, started the work timer, and committed the agreed fee to escrow. Following the repair, both parties exchanged ratings, updating their bilateral Elo scores in real time.
 
-5. LIMITATIONS
+V. LIMITATIONS
 
 While the field results are encouraging, a few practical limitations should be kept in mind. First, our 10 km fixed radius works well for compact riverine cities like Rajahmundry, but larger metropolitan expanses may need adaptive radius dilation that accounts for live bridge traffic and seasonal road congestion. Second, tradesmen in regional markets often carry budget mobile devices; frontend components must maintain smooth performance and graceful offline degradation on unstable 2G and 3G connections. Finally, the bilateral Elo model assumes both customer and worker submit reciprocal ratings after every engagement. When customers skip the review step, Bayesian historical smoothing is required to avoid artificial score decay.
 
-6. CONCLUSION AND FUTURE WORK
+VI. CONCLUSION AND FUTURE WORK
 
 In this paper, we presented a cloud-native software framework designed to organize and streamline on-demand trade services in secondary municipal markets. By integrating constrained Haversine geospatial filtering, bilateral Elo reputation dynamics, multi-factor ranking, and a two-factor doorstep authentication handshake, the system delivers dispatch matching in 34.8 ms with 96.4% radial precision and zero proxy worker substitutions.
 
