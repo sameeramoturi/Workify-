@@ -95,9 +95,11 @@ Proposed Framework  |  0.964  |  0.958  |  34.8 ms  |  0.000
 
 As Table 1 shows, the proposed framework completed dispatch matching in an average of 34.8 ms. This is 81.1% faster than spatial KNN search (184.2 ms) and 85.5% faster than standard collaborative filtering (240.6 ms). Because our pre-filtered Haversine routine discards out-of-bounds candidates before calculating composite scores, radial precision reaches 96.4%, ensuring technicians can reach the job site without unexpected cross-town delays.
 
-Figure 1: Benchmarking dispatch latency and radial precision across evaluated matchmaking models.
+Fig. 1. Benchmarking dispatch latency and radial precision across evaluated matchmaking models.
+Fig. 1 compares the proposed framework against spatial KNN and collaborative filtering models. The proposed approach achieves an average dispatch latency of 34.8 ms with 96.4% radial precision, significantly outperforming legacy directory baselines.
 
-Figure 2: Matchmaking accuracy versus geospatial search radius ($D  [2 km, 15 km]$).
+Fig. 2. Matchmaking accuracy versus geospatial search radius ($D  [2 km, 15 km]$).
+Fig. 2 plots radial matchmaking accuracy across distance thresholds from 2 km to 15 km. The proposed framework maintains precision above 95% within the primary 10 km municipal boundary, preventing out-of-town technician dispatch delays.
 
 4.2 Bilateral Elo Dynamics and Reputation Stabilization
 
@@ -113,7 +115,8 @@ Random Masking Control  |  $ 18 Elo points$
 
 As Figure 3 shows, artisans who delivered consistent service quality steadily climbed from 1200 to 1840 Elo points. Rather than bunching up near 5.0 stars, scores spread out into clear, meaningful skill brackets that help customers make confident choices.
 
-Figure 3: Dynamic convergence of bilateral worker Elo ratings over 50 consecutive service cycles.
+Fig. 3. Dynamic convergence of bilateral worker Elo ratings over 50 consecutive service cycles.
+Fig. 3 shows how technician ratings evolve across 50 completed tasks. High-performing artisans stabilize near 1840 Elo points, while low-performing workers separate into lower tiers, preventing the 5-star rating inflation common to gig apps.
 
 4.3 Doorstep Physical Security and Dispute Mitigation
 
@@ -183,17 +186,21 @@ Schedule Fulfillment Rate  |  78.5%  |  98.8%  |  +20.3%
 Booking Abandonment Rate  |  18.4%  |  1.2%  |  -17.2%
 Dispute Escalation Frequency  |  6.8%  |  0.9%  |  -5.9%
 
-Figure 4: Empirical benchmarking of dispatch overhead, customer retention, and worker income stability across workflows.
+Fig. 4. Empirical benchmarking of dispatch overhead, customer retention, and worker income stability across workflows.
+Fig. 4 demonstrates that automated recurring subscriptions eliminate daily interaction overhead (saving 288 seconds/day) and increase 30-day customer retention from 54.2% to 87.6%, while stabilizing worker income at a 91.4% predictability index.
 
 4.7 End-to-End System Prototype Implementation and UI Verification
 
-To demonstrate practical deployment readiness, the full-stack architecture was realized as a working production prototype. The React 18 / Vite single-page application embeds an interactive Leaflet geospatial map visualizing verified technician nodes across 20 Rajahmundry wards (Figure 5). The customer dispatch form provides real-time GPS coordinate snapping, one-time versus recurring subscription selection, and automated OTP generation (Figure 6). The worker dashboard incorporates live availability status toggling (AVAILABLE, BUSY, OFFLINE), audible dispatch popups showing client distance and negotiated fare, an OTP doorstep validation dialog, and an instant payout ledger (Figure 7). Across 500 simulated transactions, the client application maintained zero runtime exceptions and sub-50ms reactive state updates, confirming robust production feasibility.
+To demonstrate practical deployment readiness, the full-stack architecture was realized as a working production prototype. The React 18 / Vite single-page application embeds an interactive Leaflet geospatial map visualizing verified technician nodes across 20 Rajahmundry wards (Fig. 5). The customer dispatch form provides real-time GPS coordinate snapping, one-time versus recurring subscription selection, and automated OTP generation (Fig. 6). The worker dashboard incorporates live availability status toggling (AVAILABLE, BUSY, OFFLINE), audible dispatch popups showing client distance and negotiated fare, an OTP doorstep validation dialog, and an instant payout ledger (Fig. 7). Across 500 simulated transactions, the client application maintained zero runtime exceptions and sub-50ms reactive state updates, confirming robust production feasibility.
 
-Figure 5: High-precision municipal geospatial interface and artisan clustering map across Rajahmundry wards.
+Fig. 5. Interactive municipal geospatial map and artisan recommendation interface.
+Fig. 5 displays the deployed municipal web interface showing active service clusters across 20 Rajahmundry administrative wards. Consumers can click on ward markers (such as Danavaipeta or Morampudi) to view verified technician cards with travel distance, trade experience, and bilateral Elo ratings for transparent hiring.
 
-Figure 6: Automated recurring subscription configurator, multi-factor AI matchmaking engine, and consumer OTP handshake interface.
+Fig. 6. Consumer service booking, recurring subscription configurator, and arrival OTP interface.
+Fig. 6 shows the consumer booking portal featuring one-time repair versus recurring daily subscription toggles. The 4-step AI matchmaking engine assigns the top-ranked artisan with 96.4% accuracy, and generates an automated 4-digit arrival OTP (e.g., 8204) for doorstep identity verification.
 
-Figure 7: Worker field terminal, live dispatch queue with recurring contract alerts, and secure doorstep OTP validation interface.
+Fig. 7. Worker field terminal, live dispatch queue, and doorstep OTP verification dialog.
+Fig. 7 illustrates the worker dashboard incorporating live duty status toggling (AVAILABLE, BUSY, OFFLINE), today's earnings (₹1,850), and bilateral Elo standing (1,842 Diamond). Technicians receive real-time push dispatches with accept/decline controls, and enter the client's OTP into the secure verification dialog to unlock escrow payments.
 
 4.8 Qualitative Municipal Case Study
 
@@ -348,9 +355,11 @@ Proposed Framework  |  0.964  |  0.958  |  34.8 ms  |  0.000
 
 As Table 1 shows, the proposed framework completed dispatch matching in an average of 34.8 ms. This is 81.1% faster than spatial KNN search (184.2 ms) and 85.5% faster than standard collaborative filtering (240.6 ms). Because our pre-filtered Haversine routine discards out-of-bounds candidates before calculating composite scores, radial precision reaches 96.4%, ensuring technicians can reach the job site without unexpected cross-town delays.
 
-Figure 1: Benchmarking dispatch latency and radial precision across evaluated matchmaking models.
+Fig. 1. Benchmarking dispatch latency and radial precision across evaluated matchmaking models.
+Fig. 1 compares the proposed framework against spatial KNN and collaborative filtering models. The proposed approach achieves an average dispatch latency of 34.8 ms with 96.4% radial precision, significantly outperforming legacy directory baselines.
 
-Figure 2: Matchmaking accuracy versus geospatial search radius ($D  [2 km, 15 km]$).
+Fig. 2. Matchmaking accuracy versus geospatial search radius ($D  [2 km, 15 km]$).
+Fig. 2 plots radial matchmaking accuracy across distance thresholds from 2 km to 15 km. The proposed framework maintains precision above 95% within the primary 10 km municipal boundary, preventing out-of-town technician dispatch delays.
 
 4.2 Bilateral Elo Dynamics and Reputation Stabilization
 
@@ -366,7 +375,8 @@ Random Masking Control  |  $ 18 Elo points$
 
 As Figure 3 shows, artisans who delivered consistent service quality steadily climbed from 1200 to 1840 Elo points. Rather than bunching up near 5.0 stars, scores spread out into clear, meaningful skill brackets that help customers make confident choices.
 
-Figure 3: Dynamic convergence of bilateral worker Elo ratings over 50 consecutive service cycles.
+Fig. 3. Dynamic convergence of bilateral worker Elo ratings over 50 consecutive service cycles.
+Fig. 3 shows how technician ratings evolve across 50 completed tasks. High-performing artisans stabilize near 1840 Elo points, while low-performing workers separate into lower tiers, preventing the 5-star rating inflation common to gig apps.
 
 4.3 Doorstep Physical Security and Dispute Mitigation
 
@@ -436,17 +446,21 @@ Schedule Fulfillment Rate  |  78.5%  |  98.8%  |  +20.3%
 Booking Abandonment Rate  |  18.4%  |  1.2%  |  -17.2%
 Dispute Escalation Frequency  |  6.8%  |  0.9%  |  -5.9%
 
-Figure 4: Empirical benchmarking of dispatch overhead, customer retention, and worker income stability across workflows.
+Fig. 4. Empirical benchmarking of dispatch overhead, customer retention, and worker income stability across workflows.
+Fig. 4 demonstrates that automated recurring subscriptions eliminate daily interaction overhead (saving 288 seconds/day) and increase 30-day customer retention from 54.2% to 87.6%, while stabilizing worker income at a 91.4% predictability index.
 
 4.7 End-to-End System Prototype Implementation and UI Verification
 
-To demonstrate practical deployment readiness, the full-stack architecture was realized as a working production prototype. The React 18 / Vite single-page application embeds an interactive Leaflet geospatial map visualizing verified technician nodes across 20 Rajahmundry wards (Figure 5). The customer dispatch form provides real-time GPS coordinate snapping, one-time versus recurring subscription selection, and automated OTP generation (Figure 6). The worker dashboard incorporates live availability status toggling (AVAILABLE, BUSY, OFFLINE), audible dispatch popups showing client distance and negotiated fare, an OTP doorstep validation dialog, and an instant payout ledger (Figure 7). Across 500 simulated transactions, the client application maintained zero runtime exceptions and sub-50ms reactive state updates, confirming robust production feasibility.
+To demonstrate practical deployment readiness, the full-stack architecture was realized as a working production prototype. The React 18 / Vite single-page application embeds an interactive Leaflet geospatial map visualizing verified technician nodes across 20 Rajahmundry wards (Fig. 5). The customer dispatch form provides real-time GPS coordinate snapping, one-time versus recurring subscription selection, and automated OTP generation (Fig. 6). The worker dashboard incorporates live availability status toggling (AVAILABLE, BUSY, OFFLINE), audible dispatch popups showing client distance and negotiated fare, an OTP doorstep validation dialog, and an instant payout ledger (Fig. 7). Across 500 simulated transactions, the client application maintained zero runtime exceptions and sub-50ms reactive state updates, confirming robust production feasibility.
 
-Figure 5: High-precision municipal geospatial interface and artisan clustering map across Rajahmundry wards.
+Fig. 5. Interactive municipal geospatial map and artisan recommendation interface.
+Fig. 5 displays the deployed municipal web interface showing active service clusters across 20 Rajahmundry administrative wards. Consumers can click on ward markers (such as Danavaipeta or Morampudi) to view verified technician cards with travel distance, trade experience, and bilateral Elo ratings for transparent hiring.
 
-Figure 6: Automated recurring subscription configurator, multi-factor AI matchmaking engine, and consumer OTP handshake interface.
+Fig. 6. Consumer service booking, recurring subscription configurator, and arrival OTP interface.
+Fig. 6 shows the consumer booking portal featuring one-time repair versus recurring daily subscription toggles. The 4-step AI matchmaking engine assigns the top-ranked artisan with 96.4% accuracy, and generates an automated 4-digit arrival OTP (e.g., 8204) for doorstep identity verification.
 
-Figure 7: Worker field terminal, live dispatch queue with recurring contract alerts, and secure doorstep OTP validation interface.
+Fig. 7. Worker field terminal, live dispatch queue, and doorstep OTP verification dialog.
+Fig. 7 illustrates the worker dashboard incorporating live duty status toggling (AVAILABLE, BUSY, OFFLINE), today's earnings (₹1,850), and bilateral Elo standing (1,842 Diamond). Technicians receive real-time push dispatches with accept/decline controls, and enter the client's OTP into the secure verification dialog to unlock escrow payments.
 
 4.8 Qualitative Municipal Case Study
 
