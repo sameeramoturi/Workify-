@@ -27,6 +27,23 @@ ref_start = clean.find(ref_marker, sec1_start)
 body = clean[sec1_start:ref_start]
 ref_body = clean[ref_start + len(ref_marker):]
 
+def convert_tabular_to_text(match):
+    content = match.group(1)
+    rows = content.split(r'\\')
+    text_rows = []
+    for r in rows:
+        r = re.sub(r'\\hline', '', r)
+        r = re.sub(r'\\rowcolor\[[^\]]*\]\{[^}]*\}', '', r)
+        r = re.sub(r'\\textbf\{([^}]+)\}', r'\1', r)
+        r = re.sub(r'\\textit\{([^}]+)\}', r'\1', r)
+        r = re.sub(r'\\cite\{([^}]+)\}', r'[\1]', r)
+        r = r.replace(r'\%', '%').replace('~', ' ')
+        cells = [c.strip() for c in r.split('&')]
+        clean_cells = [c for c in cells if c]
+        if clean_cells:
+            text_rows.append('  |  '.join(clean_cells))
+    return '\n' + '\n'.join(text_rows) + '\n'
+
 def clean_text(t):
     # Preserve percent symbols first
     t = t.replace(r'\%', '%')
@@ -34,9 +51,11 @@ def clean_text(t):
     t = t.replace('---', ' — ').replace('--', '-')
     t = t.replace('~', ' ').replace(r'\,', ' ')
 
-    # Strip equations, tables, figures, algorithm boxes
+    # Convert tabular to readable text
+    t = re.sub(r'\\begin\{tabular\}\{[^}]*\}(.*?)\\end\{tabular\}', convert_tabular_to_text, t, flags=re.DOTALL)
+
+    # Strip equations, figures, algorithm boxes
     t = re.sub(r'\\begin\{equation\}.*?\\end\{equation\}', '\n[Mathematical Formulation]\n', t, flags=re.DOTALL)
-    t = re.sub(r'\\begin\{tabular\}.*?\\end\{tabular\}', '\n[Table Benchmark Results]\n', t, flags=re.DOTALL)
     t = re.sub(r'\\safeincludeimage(\[[^\]]*\])?\{[^}]+\}\{[^}]+\}', '', t)
     t = re.sub(r'\\fbox\{.*?Algorithm 1:.*?\}\}', '\n[Algorithm 1: Intelligent Municipal Matchmaking and Dispatch]\n', t, flags=re.DOTALL)
     
